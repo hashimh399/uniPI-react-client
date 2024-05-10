@@ -1,0 +1,7 @@
+.active {
+  background-color: #26353d;
+  transition: all 0.4s ease-in-out;
+  color: white;
+  border-radius: 4px;
+  box-shadow: inset 2px 5px 6px black;
+}

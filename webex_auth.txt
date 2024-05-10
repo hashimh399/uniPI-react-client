@@ -1,0 +1,46 @@
+require("dotenv").config();
+var cluster = require("cluster");
+const express = require("express");
+var bodyParser = require("body-parser");
+
+const { authorize, redirect } = require("./webexhelper");
+
+var port = 5000;
+process.env.NODE_NO_WARNINGS = 1;
+var cCPUs = 1;
+var now = (function () {
+  var year = new Date(new Date().getFullYear().toString()).getTime();
+  return function () {
+    return Date.now();
+  };
+})();
+
+if (cluster.isMaster) {
+  //create a worker for each cpu
+  for (var i = 0; i < cCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on("online", function (worker) {
+    console.log("worker" + worker.process.pid + " is online");
+  });
+  cluster.on("exit", function (worker, code, signal) {
+    console.log("worker" + worker.process.pid + " is died");
+  });
+} else {
+  var app = express();
+  app.use(
+    bodyParser.urlencoded({
+      extended: true,
+    })
+  );
+  app.use(bodyParser.json());
+  app.listen(port);
+  app.get("/api/authorize/webex", async function (req, res) {
+    return res.redirect(authorize());
+  });
+
+  app.get("/", async function (req, res) {
+    return res.json(redirect(res.query.code));
+  });
+}

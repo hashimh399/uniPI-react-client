@@ -1,0 +1,8 @@
+{
+  "editor.wordWrap": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "debug.console.acceptSuggestionOnEnter": "on",
+  "debug.inlineValues": "on"
+}

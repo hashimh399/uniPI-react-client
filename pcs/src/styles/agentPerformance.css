@@ -1,0 +1,41 @@
+/* .orange-Gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(52, 73, 85, 1) 0%,
+    rgba(80, 114, 123, 1) 100%
+  );
+} */
+/* 
+.customSelect select {
+  appearance: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 4px;
+  border-radius: 4px;
+  background: #344955;
+  color: white;
+  padding: 2px 4px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid #35374b;
+  box-shadow: inset 1px 1px 5px black;
+  cursor: pointer;
+}
+
+.customSelect option {
+  background-color: #35374b;
+  padding: 5px;
+  border-radius: 10%;
+}
+
+.customSelect select::after {
+  content: "\25BC";
+
+  font-size: 15px;
+  pointer-events: none;
+}
+
+
+ */
